@@ -1,13 +1,15 @@
 import React from 'react';
-
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
+    // console.log(cart);
     // const totalPrice = cart.reduce((total,prd) => total + prd.price,0);
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total = total + product.price;
+        total = total + product.price * product.quantity;
+        //keno error hoche bujhar jonno debug dev tool jeno oi place a hit kore orthat error place a
+        //jeno hit kore tai sei place er niche debugger likhe dibo tahole react devtool seikhane hit korbe
+        //debugger;
         
     }
 
@@ -32,12 +34,18 @@ const Cart = (props) => {
     }
     return (
         <div>
-            <h4>Order summary</h4>
+            <h4 className='text-warning'>Order summary</h4>
             <p>Items Ordered: {cart.length}</p>
             <p>Product Price: {formatNumber(total)}</p>
             <p><small>Shipping Cost: {shipping }</small></p>
             <p><small>Tax: {formatNumber(tax)}</small></p>
             <p>Total Price: {grandTotal} </p>
+            <br/>
+            {
+                props.children
+            }
+
+           
         </div>
     );
 };
