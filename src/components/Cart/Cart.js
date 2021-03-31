@@ -6,7 +6,8 @@ const Cart = (props) => {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total = total + product.price * product.quantity;
+        console.log(product.price, product.quantity)
+        total = total + product.price * product.quantity || 1;
         //keno error hoche bujhar jonno debug dev tool jeno oi place a hit kore orthat error place a
         //jeno hit kore tai sei place er niche debugger likhe dibo tahole react devtool seikhane hit korbe
         //debugger;
